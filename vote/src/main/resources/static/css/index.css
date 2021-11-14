@@ -1,0 +1,10 @@
+.title{font-size: 30px;font-weight: bolder}
+.nav{height: 50px;}
+div,body,ul,li{margin: 0px;padding: 0px}
+.nav li{float:left;margin-left: 10px;list-style: none;width: 120px;height: 25px;border: gray 1px solid;text-align: center;}
+ a{text-decoration: none}
+ a:hover{text-decoration: underline;color:red;}
+ .content{width: 100%;overflow: hidden;}
+ .left{float:left;margin-right: 10px;}
+ .right{width: 70%;float: left;}
+ .item{float:left;margin-right: 10px;width: 200px;}

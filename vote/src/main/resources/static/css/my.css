@@ -1,0 +1,28 @@
+body{
+
+}
+.panel-center{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+
+}
+.cent{
+    width: 300px;
+    height: 150px;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+
+}
+.in input{
+    width: 300px;
+}
+.button a{
+    float: right;
+}

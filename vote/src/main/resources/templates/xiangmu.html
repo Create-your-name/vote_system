@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+
+<body>
+<div class="da">
+
+<div class="dao">
+	<ul id="main_menu">
+	<li>互评选</li>
+	<li ><a href="index.html">首页</a></li>
+	<li ><a href="xiangmu.html">项目介绍</a></li>
+	</li>
+	<li ><a href="renyuan.html" class="main_item">关于我们</a>
+		<ul class="main_menu" style="background: #FFFFFF;">
+			<li><a href="#">毛恩赐</a></li>
+			<li><a href="#">刘海</a></li>
+		</ul>
+	</li>
+<li><a href="liangxi.html">联系我们</a></li>
+<li><button type="button">登录</button>&nbsp;<button type="button" id="button1">注册</button></li>
+</ul>
+</div>
+
+<div class="ban"><img src="images/ban.jpg" /></div>
+
+<div class="ye"><h2>剧情简介</h2></div>
+<div class="ju" style="padding-bottom:0;"><p>十多年前一只拥有巨大威力的妖兽“九尾妖狐”袭击了木叶隐村，当时的第四代火影拼尽全力，以自己的生命为代价将“九尾妖狐”封印在了刚出生的鸣人身上。木叶村终于恢复了平静，但村民们却把鸣人当成像“九尾妖狐”那样的怪物看待，所有人都疏远他。无可奈何，鸣人用各种恶作剧试图吸引大家的注意力。在伊鲁卡老师的关心下，鸣人始终保持着乐观的精神。为了让更多的人认可自己，他下定决心要成为火影！鸣人怀着过人的自信与勇气开始了训练，但一切要比他想象的要困难的多！</p>
+<p>鸣人从小十分孤独，木叶村村民把他当成九尾的化身，当他是怪物看待。一晃十多年过去了， 鸣人考入了木叶村的忍者学校，结识了伙伴佐助和小樱。佐助是宇智波一族的末裔，当他还是小孩的时候他的哥哥——一个拥有强大实力的忍者将他们家族的人都杀死了，然后投靠了一直想将木叶村毁灭的大蛇丸，佐助自小就发誓要超越哥哥，为家族报仇。鸣人他们在忍者学校得到了教官卡卡西的精心指点，在他的帮助下去迎接成长中的一次又一次挑战！不久之后，在卡卡西老师的带领下，鸣人与佐助、小樱一起踏上了修行之路。等待他们的将是无穷无尽的艰险挑战，而鸣人等人也在这生与死的较量中逐渐成长起来。</p></div>
+
+<div class="ye"><h2>图册集锦</h2></div>
+<div class="qing">
+	<div id=demo style="overflow:hidden;width:930px;color:#ffffff; margin:0 auto;">
+        <table border=0 align=left cellpadding=0 cellspacing="0" cellspace=0>
+          <tr>
+            <td valign=top id=demo1>
+                <table width="930"  padding-left:10px; cellspacing="5" cellpadding="0">
+                        <tr>
+                            <td><a href="#">
+                            	<img src="images/ju1.jpg"></a>
+                            </td>
+                            <td>
+                            	<a href="#"><img src="images/ju2.jpg" ></a>
+                            </td>
+                            <td>
+                            	<a href="#"><img src="images/ju.jpg"></a>
+                            </td>
+                          
+                        </tr>
+              </table>
+            </td>
+            <td id=demo2 valign=top></td>
+          </tr>
+        </table>
+  </div>
+  <script>
+        var speed=30
+        demo2.innerHTML=demo1.innerHTML
+        function Marquee(){
+        if(demo2.offsetWidth-demo.scrollLeft<=0)
+            demo.scrollLeft-=demo1.offsetWidth
+        else{
+            demo.scrollLeft++
+            }
+        }
+        var MyMar=setInterval(Marquee,speed)
+        demo.onmouseover=function() {clearInterval(MyMar)}
+        demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+    </script>
+	</div>
+
+
+
+
+
+
+<div class="foot"><p>火影忍者</p></div>
+</div>
+</body>
+</html>

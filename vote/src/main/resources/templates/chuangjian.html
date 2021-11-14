@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>无标题文档</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<body background="images/b_4.png">
+<div class="da1">
+	<div class="dao"style="position:fixed;z-index: 2;background:  #F4A460;">
+		<ul id="main_menu">
+			<li><img th:src="@{images/qt_vote.png}"style="height: 50px"></li>
+			<li><a href="index.html">首页</a></li>
+			<li ><a th:href="@{xiangmu}" class="main_item">项目介绍</a>
+				<ul class="main_item" style="background: #FFFFFF;">
+					<li><a href="#">住宿类</a></li>
+					<li><a href="#">饮食类</a></li>
+					<li><a href="#">教学类</a></li>
+					<li><a href="#">情感类</a></li>
+					<li><a href="shipin.html">视频介绍</a></li>
+				</ul>
+			</li>
+			<li ><a th:href="@{renyuan}" class="main_item">关于我们</a>
+				<ul class="main_item" style="background: #FFFFFF;">
+					<li><a th:href="@{renyuan}">毛恩赐</a></li>
+					<li><a th:href="@{renyuan}">刘海</a></li>
+					<li><a th:href="@{renyuan}">缪鹏辉</a></li>
+					<li><a th:href="@{renyuan}">范存康</a></li>
+					<li><a th:href="@{renyuan}">殷章正</a></li>
+				</ul>
+			</li>
+			<li><a th:href="@{chuangjian}">创建项目</a></li></ul>
+		<div class="box" >
+			<input type="search" name="search" placeholder="请输入关键字" style="border-radius: 5px;">
+			<div id="search"><button id="ss">搜索</button></div>
+		</div>
+		<div class="dl">
+			<span th:if="${not #strings.isEmpty(username)}" th:text="欢迎 + ${username}"></span>
+			<button class="button2" th:if="${not #strings.isEmpty(username)}" type="button"><a th:href="@{logout}">登出</a></button>
+			<button class="button2" th:if="${#strings.isEmpty(username)}" type="button"><a th:href="@{login}">登录</a></button>
+			<button class="button2" th:if="${#strings.isEmpty(username)}" type="button"><a th:href="@{register}">注册</a></button>
+		</div>
+	</div>
+	<div class="div1"></div>
+
+	<div class="paiban">
+		<form class="c_body" th:action="@{/Action/insert}" method="post" enctype="multipart/form-data" onsubmit="return check();">
+			<div class="c_center">
+				<div class="c_name">名字:<input type="text" name="title" id="name"/> <br/></div>
+				<div class="fenlei">
+					分类:<select name="tag.tagid"  >
+					<option th:each=" tag :${taglist}"  th:value="${tag.id}" th:text="${tag.tagid}"></option>
+				</select><br/>
+				</div>
+<!--				备注:<input type="text" name="summary"><br/>&ndash;&gt;-->
+				<div class="c_summary">详情:<input type="text" name="summary" id="summary"><br/></div>
+				<div class="c_upload">上传封面:<input type="file" name="uploadfile" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" id="upload"/></div>
+<!--							<div class="c_author"><input type="hidden" name="authorid" th:value="${userid}"/></div>-->
+<!--							<div class="c_article"><input type="hidden" name="articleid" th:value="${articleid}"/></div>-->
+				<button class="c_submit" type="submit" >增加项目</button>
+				<button class="c_reset" type="reset">重置</button>
+			</div>
+		</form>
+	</div>
+
+
+
+</div>
+
+</body>
+<script>
+	function check(){
+		var name = document.getElementById('name').value;
+		var summary = document.getElementById("summary").value;
+		var upload = document.getElementById("upload").value;
+		if (name == "") {
+			alert("请填写项目名！！！");
+			return false;
+		}
+		if (summary == ""){
+			alert("请填写说明！！！");
+			return false;
+		}
+		if (upload == ""){
+			alert("请上传封面！！！");
+			return false;
+		}
+		return true;
+	}
+</script>
+</html>
+

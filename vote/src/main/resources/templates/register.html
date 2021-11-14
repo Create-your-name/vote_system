@@ -1,0 +1,65 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>注册</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+	<link type="text/css" rel="stylesheet" href="/css/my.css" th:href="@{/css/my.css}" />
+</head>
+<body>
+<div class="panel-center panel panel-primary" id="content" style="margin: 30px; padding-left: 20px; padding-right: 20px;">
+	<div class="cent">
+		<h1>注册新账号</h1>
+
+		<form th:object="${register}" th:action="@{/adduser}" action="#" method="post">
+			<div class="in">
+				<label> 用户名 :<input type="text" th:field="*{username}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">用户名格式错误</p>
+			</div>
+			<div class="in">
+				<label> 邮箱 :<input type="text" th:field="*{email}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('*{email}')}" th:errors="*{email}">邮箱格式错误</p>
+			</div>
+			<div class="in">
+				<label> 密码 :<input type="password" th:field="*{password}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">密码格式错误</p>
+			</div>
+			<div class="in">
+				<label> 确认密码: <input type="password" th:field="*{passwordConfirmation}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('passwordConfirmation')}" th:errors="*{passwordConfirmation}">密码不匹配</p>
+			</div>
+			<div>
+				<label> 性别:
+					<select th:field="*{sex}">
+						<option th:value="'0'" th:text="男"></option>
+						<option th:value="'1'" th:text="女"></option>
+					</select>
+				</label>
+			</div>
+			<div class="in">
+				<label> 年龄 :<input type="text" th:field="*{age}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('*{age}')}" th:errors="*{age}">年龄格式错误</p>
+			</div>
+			<div class="in">
+				<label> 手机号 :<input type="text" th:field="*{phone}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('*{phone}')}" th:errors="*{phone}">年龄格式错误</p>
+			</div>
+			<div class="in">
+				<label> 班级 :<input type="text" th:field="*{classes}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('*{classes}')}" th:errors="*{classes}">班级格式错误</p>
+			</div>
+			<div class="button">
+				<input type="submit" class="btn btn-success" value="创建账户"></input>
+				<a th:href="@{/login}"><input type="button" value="已有账号？由此登录" class="btn btn-success"/></a>
+			</div>
+		</form>
+		<br/>
+		<div>
+			<a th:href="@{/}"><input type="button" value="返回" class="btn btn-primary"/></a>
+		</div>
+		<br />
+	</div>
+</div>
+</body>
+</html>

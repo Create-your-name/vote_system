@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>无标题文档</title>
+</head>
+<head>
+	<link th:href="@{css/style.css}" rel="stylesheet">
+	<style>
+		#wrap{
+			width: 85%;
+			height: 470px;
+			margin: 0 auto;
+			position: relative;
+			cursor: pointer;
+		}
+		#pic li {
+			display: none;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+		#pic li  img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+		#num {
+			position: absolute;
+			z-index: 2;
+			bottom: 20px;
+			left: 46px;
+		}
+		#num li {
+			float: left;
+			width: 8px;
+			height: 8px;
+			margin: 5px;
+			border-radius: 50%;
+			border: 1px solid #FFFFFF;
+			line-height: 20px;
+			background: transparent;
+			text-align: center;
+		}
+		#num li.active {
+			background:  #fefefe;
+		}
+		.arrow {
+			z-index: 3;
+			height: 40px;
+			width: 30px;
+			position: absolute;
+			top: 45%;
+			line-height: 40px;
+			background: rgba(0, 0, 0, 0.3);
+			text-align: center;
+			display: none;
+		}
+		.wrap:hover .arrow {
+			display: block;
+		}
+		.arrow:hover {
+			background: rgba(0, 0, 0, 0.7);
+		}
+		#left {
+			left: 0;
+		}
+		#right {
+			right: 0;
+		}
+
+
+	</style>
+</head>
+
+<body>
+<div class="da">
+
+	<div class="dao"style="position:fixed;z-index: 2;background: #F4A460;">
+		<ul id="main_menu">
+			<li><img th:src="@{images/qt_vote.png}" style="height: 50px"></li>
+			<li><a href="index.html">首页</a></li>
+			<li ><a class="main_item">项目分类</a>
+				<ul class="main_item" style="background: #FFFFFF;">
+					<li th:each="tag:${tags}" ><a th:href="@{fenlei}">[[${tag}]]</a></li>
+				</ul>
+			</li>
+			<li ><a th:href="@{renyuan}" class="main_item">关于我们</a>
+				<ul class="main_item" style="background: #FFFFFF;">
+					<li><a th:href="@{renyuan}">毛恩赐</a></li>
+					<li><a th:href="@{renyuan}">刘海</a></li>
+					<li><a th:href="@{renyuan}">缪鹏辉</a></li>
+					<li><a th:href="@{renyuan}">范存康</a></li>
+					<li><a th:href="@{renyuan}">殷章正</a></li>
+				</ul>
+			</li>
+			<li><a th:href="@{chuangjian}">创建项目</a></li></ul>
+		<div class="box" >
+			<input type="search" name="search" placeholder="请输入关键字" style="border-radius: 5px;">
+			<div id="search"><button id="ss">搜索</button></div>
+		</div>
+		<div class="dl">
+			<span th:if="${not #strings.isEmpty(username)}" th:text="欢迎 + ${username}"></span>
+			<button class="button2" th:if="${not #strings.isEmpty(username)}" type="button"><a th:href="@{logout}">登出</a></button>
+			<button class="button2" th:if="${#strings.isEmpty(username)}" type="button"><a th:href="@{login}">登录</a></button>
+			<button class="button2" th:if="${#strings.isEmpty(username)}" type="button"><a th:href="@{register}">注册</a></button>
+		</div>
+	</div>
+	<div class="div1"></div>
+	<div id="wrap" style="position:relative;z-index: 1;">
+		<ul id="pic">
+			<li style="display: none;"><img th:src="@{images/1.jpg}" alt=""></li>
+			<li style="display: none;"><img th:src="@{images/2.jpg}" alt=""></li>:
+			<li style="display: block;"><img th:src="@{images/4.jpg}" alt=""></li>
+		</ul>
+		<ul id="num">
+			<li class="active"></li>
+			<li class=""></li>
+			<li class=""></li>
+		</ul>
+		<a href="javascript:;" class="arrow" id="left"><</a>
+		<a href="javascript:;" class="arrow" id="right">></a>
+	</div>
+
+	<div class="xyg1">
+		<h2 id="hh" style="text-align: center;">热门投票案例</h2>
+		<div class="rm1">
+			<div class="rm3"><img th:src="@{images/a.jpg}" style="width:90% ;height: 70%;border-radius: 15px;"><h2 id="hh1">智慧探险家投票</h2>
+				<span>
+		<div class="mark">
+			<img th:src="@{images/1.1.jpg}"/ alt=""style="width: 100%;height: 100%;">
+		</div>
+	</span>
+			</div>
+			<div class="rm3"><img th:src="@{images/b.jpg}" style="width:90% ;height: 70%;border-radius: 15px;"><h2 id="hh1">AI编程投票</h2>
+				<span>
+		<div class="mark">
+			<img th:src="@{images/1.1.jpg}" alt=""style="width: 100%;height: 100%;"/>
+		</div>
+	</span>
+			</div>
+			<div class="rm3"><img th:src="@{images/c.png}" style="width:90% ;height: 70%;border-radius: 15px;"><h2 id="hh1">评选最美教师</h2>
+				<span>
+		<div class="mark">
+			<img th:src="@{images/1.1.jpg}" alt=""style="width: 100%;height: 100%;"/>
+		</div>
+	</span>
+			</div>
+		</div>
+		<div class ="rm2">
+			<div class="rm3"><img th:src="@{images/d.png}" style="width:90% ;height: 70%;border-radius: 15px;"><h2 id="hh1">摄影大赛投票</h2>
+				<span>
+		<div class="mark">
+			<img th:src="@{images/1.1.jpg}" alt=""style="width: 100%;height: 100%;"/>
+		</div>
+	</span>
+			</div>
+			<div class="rm3"><img th:src="@{images/e.png}" style="width:90% ;height: 70%;border-radius: 15px;"><h2 id="hh1">中国医生节</h2>
+				<span>
+		<div class="mark">
+			<img th:src="@{images/1.1.jpg}" alt=""style="width: 100%;height: 100%;"/>
+		</div>
+	</span>
+			</div>
+			<div class="rm3"><img th:src="@{images/f.png}" style="width:90% ;height: 70%;border-radius: 15px;"><h2 id="hh1">美丽乡村投票</h2>
+				<span>
+		<div class="mark">
+			<img th:src="@{images/1.1.jpg}" alt=""style="width: 100%;height: 100%;"/>
+		</div>
+	</span>
+			</div>
+		</div>
+	</div>
+	<div class="xyg">
+		<h2 id="hh" style="text-align: center;">完善的功能与服务</h2>
+		<div class="img2">
+			<div id="img1"><img th:src="@{images/1.1.jpg}" style="width:100% ;height: 100%;border-radius: 15px;" onmousemove="this.src='images/1.2.jpg'" onmouseout="this.src='images/1.1.jpg'"></div>
+			<div id="img1"><img th:src="@{images/2.1.jpg}" style="width:100% ;height: 100%;border-radius: 15px;" onmousemove="this.src='images/2.2.jpg'" onmouseout="this.src='images/2.1.jpg'"></div>
+			<div id="img1"><img th:src="@{images/3.1.jpg}" style="width:100% ;height: 100%;border-radius: 15px;" onmousemove="this.src='images/3.2.jpg'" onmouseout="this.src='images/3.1.jpg'"></div>
+			<div id="img1"><img th:src="@{images/4.1.jpg}" style="width:100% ;height: 100%;border-radius: 15px;" onmousemove="this.src='images/4.2.jpg'" onmouseout="this.src='images/4.1.jpg'"></div>
+			<div id="img1"><img th:src="@{images/5.1.jpg}" style="width:100% ;height: 100%;border-radius: 15px;" onmousemove="this.src='images/5.2.jpg'" onmouseout="this.src='images/5.1.jpg'"></div>
+		</div>
+	</div>
+</div>
+<div class="tp"style="width: 85%;height: 600px;margin: 0 auto;">
+	<div class="jw" style="width: 55%;height: 55%;">
+		<h2 id="hh2">最佳人气</h2>
+		<div class="left">
+			<li>文化衫投票</li>
+			<li>公众号投票</li>
+			<li>年度"十大新闻"投票</li>
+		</div>
+		<div class="right">
+			<li>萌宝投票评选</a></li>
+			<li>最喜爱的夏季新品</li>
+			<li>周末聚会方案投票</li>
+		</div>
+		<button class="b1">免费使用</button>
+	</div>
+	<div class="jw1"><img th:src="@{images/123.jpg}" style="width: 40%;height: 60%;">
+	</div>
+</div>
+
+<div class="tp"style="width: 85%;height: 600px;margin: 0 auto;">
+	<div class="jw2" style="width: 40%;height: 65%;">
+		<h2 id="hh2"><a>微信红包抽奖活动</a></h2>
+		<div class="jw2_1">
+			<li>微信现金红包可激励用户积极参与</li>
+			<li>可提供自背奖品给用户抽取</li>
+		</div>
+		<button class="b1">免费使用</button>
+	</div>
+	<div class="jw3"style="width:50%;height:70%;"><img th:src="@{images/124.jpg}" style="width: 80%;height: 90%;float: right;"></div>
+</div>
+<div class="tp"style="width: 85%;height: 600px;margin: 0 auto;">
+	<div class="jw4" >
+		<h2 id="hh2">投票墙</h2>
+		<div class="jw4_1"style="width: 69%;height: 65%;">
+			<li>可以把投票结果实时投影到大屏幕</li>
+			<li>实时展示投屏结果</li>
+			<button class="b1">免费使用</button>
+		</div>
+
+	</div>
+	<div class="jw5"><img th:src="@{images/125.jpg}" style="width: 40%;height: 60%;"></div>
+</div>
+<div class="wei" style="background: #c8c6c7;">
+	<div class="logo">
+		<img th:src="@{images/qtvote.jpg}" style="margin-top:20px;margin-left: 30px;border-radius: 15px;"/>
+	</div>
+	<div class="gy">
+		<div class="wz" >
+			<h2 class="h22">帮助中心</h2>
+			<li>帮助中心</li>
+			<li>最新动态</li>
+			<li>常见问题</li>
+		</div>
+		<div class="wz">
+			<h2 class="h22">产品服务</h2>
+			<li>服务套餐</li>
+			<li>服务条款</li>
+			<li>联系我们</li>
+		</div>
+		<div class="wz">
+			<h2 class="h22">友情链接</h2>
+			<li>蜻蜓投票</li>
+			<li>顶级技术</li>
+			<li>等待加入</li>
+		</div>
+		<div class="wz">
+			<h2 class="h22">常见问题</h2>
+			<li>高级设置介绍</li>
+			<li>大屏直播功能</li>
+			<li>如何使用投票</li>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	function $(id) {
+		return document.getElementById(id);
+	}
+	window.onload = function() {
+		var oLeft = $("left");
+		var oRight = $("right");
+		var index = 0;
+		var timer = null;
+		var pic = $("pic").getElementsByTagName("li");
+		var num = $("num").getElementsByTagName("li");
+		var oDiv = $("wrap");
+
+		oRight.onclick = function() {
+			index++;
+			if (index >= pic.length) {
+				index = 0;
+			}
+			change(index);
+		}
+		oLeft.onclick = function() {
+			index--;
+			if (index < 0) {
+				index = pic.length - 1;
+			}
+			change(index);
+		}
+		oDiv.onmouseover = function() {
+			clearInterval(timer);
+		}
+		oDiv.onmouseout = function() {
+			timer = setInterval(run, 2000); //鼠标移出后重新开始定时器
+		}
+
+		timer = setInterval(run, 4000); //定时器
+
+		function run() { //用于定时器的函数
+			index++;
+			if (index >= pic.length) {
+				index = 0;
+			}
+			change(index);
+		}
+
+		for (var i = 0; i < num.length; i++) {
+			num[i].index = i; //把索引值存起来
+			num[i].onmouseover = function() {
+				change(this.index);
+			}
+		}
+
+		function change(curindex) { //用于切换图片的函数
+			for (var i = 0; i < pic.length; i++) {
+				pic[i].style.display = "none";
+				num[i].className = "";
+			}
+			pic[curindex].style.display = "block";
+			num[curindex].className = "active";
+			index = curindex;
+		}
+	}
+
+
+</script>
+</html>

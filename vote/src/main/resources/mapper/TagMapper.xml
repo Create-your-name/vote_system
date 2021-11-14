@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sx_vote.dao.mapper.SX_TagMapper">
+    <select id="findall"  resultType="sx_vote.dao.pojo.Tag">
+        select *  from sx_action_tag
+    </select>
+    <!--<insert id="saveComment"  keyProperty="id"  parameterType="sx_vote.dao.pojo.Comment">
+        insert into sx_comment(content,create_date,article_id,author_id,parent_id,to_uid,level)
+        values(#{content},#{create_date},#{article_id},#{author_id},#{parent_id},#{to_uid},#{level})
+    </insert>
+    <update id="updateComment" parameterType="sx_vote.dao.pojo.Comment">
+        update sx_comment  set content=#{content} where id=#{id}
+    </update>
+    <select id="findByCid" parameterType="int" resultType="sx_vote.dao.pojo.Comment">
+        select * from sx_comment where id=#{id}
+    </select>
+    <delete id="deleteComment" parameterType="int">
+        delete from sx_comment where id=#{id}
+    </delete>-->
+</mapper>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>vote</title>
+    <style>
+        .main{
+
+            background-size: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .vote{
+            width: 60%;
+            height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 30px;
+            background-color: rgba(255,255,255,0.7);
+        }
+        .picture{
+            position: absolute;
+            height: 320px;
+            width: 30%;
+            top: 10%;
+            left: 5%;
+            border: 1px solid #555555;
+            border-radius: 10px 10px 10px 10px;
+        }
+        .tip{
+            position: absolute;
+            height: 300px;
+            width: 10%;
+            top: 10%;
+            left: 40%;
+
+        }
+        .content{
+            position: absolute;
+            float: right;
+            height: 300px;
+            width: 50%;
+            top: 10%;
+            right: 6%;
+        }
+
+        .vote_title{
+            position: absolute;
+            /*background: #ac2925;*/
+            height: 30px;
+            width: 80%;
+            left: 15%;
+            margin-top: 20px;
+            border: 1px solid #555555;
+        }
+        .vote_category{
+            position: absolute;
+            /*background: #d58512;*/
+            height: 30px;
+            width: 80%;
+            left: 15%;
+            margin-top: 80px;
+            border: 1px solid #555555;
+        }
+        .author{
+            position: absolute;
+            /*background: darkgreen;*/
+            height: 30px;
+            width: 80%;
+            left: 15%;
+            margin-top: 140px;
+            border: 1px solid #555555;
+        }
+        .time{
+            position: absolute;
+            /*background: deeppink;*/
+            height: 30px;
+            width: 80%;
+            left: 15%;
+            margin-top: 205px;
+            border: 1px solid #555555;
+        }
+        .abstract{
+            position: absolute;
+            /*background: deeppink;*/
+            height: 60px;
+            width: 80%;
+            left: 15%;
+            margin-top: 265px;
+            border: 1px solid #555555;
+        }
+        .back{
+            width: 50px;
+            height: 30px;
+            background: #00FFFF;
+            border: #555555 1px solid;
+
+        }
+        .but{
+            position: absolute;
+            bottom: 10%;
+            left: 42%;
+
+            font-size: 125%;
+            font-family: "Adobe 黑体 Std R";
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #approve{
+            width: 100px;
+            height: 50px;
+            background: #1cff6a;
+            border: rgba(145,146,255,0.69) 4px solid;
+            border-radius: 40px 40px 40px 40px;
+        }
+
+        #approve:hover {
+            background-color: #2579d1;
+        }
+        /*active 要在后面 否则会被hover覆盖*/
+        #approve:focus {
+            background-color: #00ff00;
+        }
+
+        #approve:active {
+            background-color: #c8c6c7;
+        }
+        .b_powerCounts{
+            position: absolute;
+            /*border: rgba(145,146,255,0.69) 4px solid;*/
+            width: 130px;
+            height: 30px;
+            bottom: 2px;
+            font-family: "Adobe 楷体 Std R";
+            color: #737373;
+            font-size: 1xp;
+            left: 37%;
+        }
+        .powerCounts{
+            position: absolute;
+            /*border: rgba(145,146,255,0.69) 4px solid;*/
+            width: 50px;
+            height: 30px;
+            bottom: 2px;
+            font-family: "Adobe 楷体 Std R";
+            color: #737373;
+            font-size: 1xp;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body background="images/b_5.jpg">
+    <div class="main">
+        <div class="vote">          <!--<img  th:src="@{(${action.img})}" style="width: 100%;height: 100%;border-radius: 10px;" />  -->
+            <div class="picture"><img th:each="action:${action}" th:src="@{(${action.img})}" style="width: 100%;height: 100%;border-radius: 10px;"/>
+            </div>
+            <div class="tip">
+                <br class="b_title">标题：</br>
+                <br>
+                <br class="b_category">文章标题：</br>
+                <br>
+                <br class="b_author">发起人：</br>
+                <br>
+                <br class="b_time">截止日期：</br>
+                <br>
+                <br class="b_abstract">简介：</br>
+            </div>
+            <div class="content" th:each="action:${action}"> <!--th:each="action:${action}"-->
+                <div class="vote_title"  th:text="${action.title}"></div>
+                <div class="vote_category" th:test="${tags}">泪目类</div>
+                <div class="author" th:text="${action.authorid}"></div>
+                <div class="time"  th:text="${action.edate}"></div>
+                <div class="abstract" th:text="${action.summary}"></div>
+
+            </div>
+            <div class="a"><a href="http://localhost:8880/fenlei"><button class="back">返回</button></a></div>
+            <div class="but" >
+               <!-- <input name="confirm" type="button" id="sureBtn" class="=sure" value="确定" onclick="location.href='Url.Action()'">-->
+              <!-- &lt;!&ndash; &lt;!&ndash;<button type="button" id="approve" onclick="location.href='Url.Action("update","Action")'">投票</button>    &lt;!&ndash;onclick="add()"&ndash;&gt;&ndash;&gt;-->
+                <button type="button" id="approve" th:onclick="|add('${action.articleid}')|">投票</button>
+            </div>
+            <div class="b_powerCounts">目前已投票人数：</div>
+            <div class="powerCounts" th:each="action:${action}" th:text="${action.powerCounts}" id="powerCounts"></div>
+
+
+        </div>
+    </div>
+
+
+</body>
+<script>
+    i = 0;
+    function add(articleid)
+    {
+        /*window.print(articleid);      打印 功能 。。。*/
+     /*   window.alert(articleid);*/
+        if (i <1){
+            window.location.href = "/Action/update?id="+articleid;
+            i++;
+        }else {
+            alert("您已经投过票!");
+        }
+
+    }
+</script>
+
+</html>

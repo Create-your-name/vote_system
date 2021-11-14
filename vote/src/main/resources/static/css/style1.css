@@ -1,0 +1,83 @@
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
+li, dl, dt, dd, form, a, fieldset, input, th, td
+{margin: 0; padding: 0; border: 0; outline: none;}
+body {	font-family: "宋体";font-size: 12px;color:#000000;line-height: 20px;text-align:left;}
+td,th {font-family: "宋体";font-size: 12px;color: #000000;}
+A:link {TEXT-DECORATION: none;}
+A:visited {TEXT-DECORATION: none;}
+.clear{ clear:both;}
+
+ul,li{list-style-type:none;}
+body{ background: url(../images/bj.jpg) no-repeat;}
+h2{ color:#dc5c1b;}
+.da { width:950px; margin:0 auto;background:#efe1e3 ;}
+.dao { height:50px; background: #B9667Dg;position: fixed;margin-top: 0;top: 0;}
+.dao li {width:158px;float:left; text-align: center; line-height:50px;}
+.dao a {   width:158px; height:50px; display:block; color:#000000; font-size: 14px; font-weight:bold}
+.dao a:hover{ background: #ffffff;color: #00FFFF;}
+
+#main_menu li{position: relative;list-style-type: none;}
+#main_menu li ul{display: none;}
+#main_menu li:hover ul{display:block;position: absolute;}
+
+
+.shou { padding:20px 0; width:100%; overflow:hidden;}
+.zuo { width:400px; float:left; line-height:35px; padding-left:20px;}
+.zuo p { margin-right:10px; font-size:14px;}
+.you { width:470px; float:right; padding-right:30px;}
+.ye { margin-top:20px;}
+.ye h2 { margin-left:20px; color:#dc5c1b;}
+.ji {  margin-left:20px; margin-right:20px; height:30px; margin-top:20px; border-bottom:1px solid #FFFFFF; }
+.ben { width:130px; float:left;}
+.xin { width:315px; float:left;}
+.xi {  margin-left:20px; margin-right:20px; height:30px; margin-top:10px; border-bottom:1px solid #FFFFFF;}
+.foot { margin-top:20px; height:80px; background: #b9667d; text-align:center; line-height:80px;}
+.foot p { color:#FFFFFF; font-size: 14px; font-weight:bold }
+.dao #button1 {background: aqua;}
+
+.ju { padding:20px; line-height:30px;text-indent:2em; font-size:14px;}
+.qing { margin-top:20px;}
+.qing img { margin-left:12px; width:300px; height:300px;}
+.jue { width:100%; overflow:hidden; margin-top:20px;}
+.jiao { width:280px; float:left;}
+.jiao img { margin-left:20px; width:220px; height:250px;}
+.se { width:630px; float:left; padding:0 20px 20px 20px;}
+.se p { line-height:30px; font-size:14px;}
+.se b { line-height:30px; font-size:16px;}
+.se a:hover b{color:#dc5c1b;}
+.sp{ width:100%; overflow:hidden;}
+.sp li{ width:460px; float:left; margin-left:10px;}
+
+.jia { margin-top:20px;}
+.jia img { margin-left:20px; width:445px; height:300px;}
+.pin { padding:20px; line-height:30px; text-indent:2em;}
+
+.pin li{ width:100%; overflow:hidden; border-bottom:1px dashed #FFFFFF; font-size:14px; color:#666666;}
+.pin h1{ color:#000000; font-size:14px; margin-left:0;}
+
+.liu { height:50px; margin-top:20px;}
+.liu h2 { text-align:center;}
+.ba { margin-top:20px; height:40px;}
+.xing { width:400px; float:left;}
+.xing p { font-size: 14px; margin-left:320px;}
+.mi { width:400px; float:left;}
+.mi input { width:200px; height:25px; border:1px solid #666666;}
+.bie { margin-top:20px; height:40px;}
+.nan { width:400px; float:left;}
+.nan p  { font-size: 14px; margin-left:320px;}
+.nv {width:30px; float:left;}
+.nv p  { font-size: 14px;}
+.yuan { width:30px; float:left;}
+.mian { margin-top:20px;}
+.mian p  { font-size: 14px; margin-left:200px;}
+.ka textarea { width:500px; height:200px; margin-left:200px;}
+.an { height:50px; margin-top:20px;}
+.azuo { width:400px; float:left; }
+.azuo input { width:60px; height:30px; margin-left:300px;}
+.azuo:hover input { background:#a1505a; color:#FFFFFF;}
+
+.ayou { width:400px; float:left;}
+.ayou input { width:60px; height:30px;}
+.ayou:hover input { background:#a1505a; color:#FFFFFF;}
+
+		            

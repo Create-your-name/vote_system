@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sx_admin.mapper.SX_ActionMapper">
+
+    <!--多表查询的关联 属性-->
+    <!--<resultMap id="Comment" type="sx_vote.dao.pojo.Action">
+        <id column="id" property="id"></id>
+        <result column="powerCounts" property="powerCounts"></result>
+        <result column="cdate" property="cdate"></result>
+        <result column="edate" property="edate"></result>
+        <result column="summary" property="summary"></result>
+        <result column="title" property="title"></result>
+        <result column="authorid" property="authorid"></result>
+        <result column="img" property="img"></result>
+        <result column="articleid" property="articleid"></result>
+       &lt;!&ndash; <association property="comment" column="articleId" javaType="sx_vote.dao.pojo.Comment">
+            <id column="id" property="id"></id>
+            <result column="content" property="content"></result>
+            <result column="createDate" property="createDate"></result>
+            <result column="articleId" property="articleId"></result>
+            <result column="authorId" property="authorId"></result>
+            <result column="parentId" property="parentId"></result>
+            <result column="toUid" property="toUid"></result>
+            <result column="level" property="level"></result>
+        </association>&ndash;&gt;
+    </resultMap>-->
+    <!--查询整个表的方法方法          2021年10月25日16:11:41  做完-->
+    <select id="findall" resultType="sx_admin.pojo.Action">
+        select * from  sx_action
+    </select>
+
+    <!--查询 整张表最大的 文章id  然后返回给 创建 的 页面赋值给 articleid-->
+    <select id="findallMaxid" resultType="int">
+        select articleId from sx_action
+    </select>
+
+    <!--插入       做完了   2021年10月25日17:06:03-->
+    <insert id="saveAction"  keyProperty="id"  parameterType="sx_admin.pojo.Action">
+        insert into sx_action(summary,title,img,authorid,articleid,powerCounts)
+        values(#{summary},#{title},#{img},#{authorid},#{articleid},#{powerCounts})
+    </insert>
+
+
+    <!--更新      做完了         2021年10月25日17:06:08-->
+    <update id="updateAction" parameterType="int">
+        update sx_action  set powerCounts =powerCounts+1 where articleid=#{articleid}
+    </update>
+    <!--查询      根据id        2021年10月25日17:10:34-->
+    <select id="findByCid" parameterType="int" resultType="sx_admin.pojo.Action">
+        select * from sx_action where id=#{id}
+    </select>
+
+    <!--删除      根据id      2021年10月25日17:17:55  -->
+    <delete id="deleteAction" parameterType="int">
+        delete from sx_action where id=#{id}
+    </delete>
+
+</mapper>
